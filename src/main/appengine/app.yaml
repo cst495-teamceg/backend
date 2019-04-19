@@ -1,0 +1,9 @@
+service: springboot
+runtime: java8
+api_version: '1.0'
+env: standard
+env_variables:
+  SPRING_PROFILES_ACTIVE: "gcp"
+handlers:
+- url: /.*
+  script: this field is required, but ignored
