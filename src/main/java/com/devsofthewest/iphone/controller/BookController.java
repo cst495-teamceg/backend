@@ -1,28 +1,40 @@
 package com.devsofthewest.iphone.controller;
 
-import com.devsofthewest.iphone.model.Book;
-import com.devsofthewest.iphone.repositories.BookRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import com.devsofthewest.iphone.service.UserService;
+import com.devsofthewest.iphone.model.*;
+import com.devsofthewest.iphone.model.UserContext.*;
 
-import java.util.List;
-import com.google.common.collect.Lists;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
 
 @RestController
-public class BookController
-{
+public class BookController {
 
-@Autowired
-BookRepository bookRepository;
-  @GetMapping("/books/getAll")
-  public String findAllBooks() {
-     Iterable<Book> books = this.bookRepository.findAll();
-     return Lists.newArrayList(books).toString();
-  }
-  @GetMapping("/hello")
-  public String hello2() {
-      return "HELLO FRIENDS";
-  }
+    @Autowired
+    UserService userService;
 
+    @RequestMapping(method = RequestMethod.GET, value = "/users/getAll")
+    public Iterable<User> users() {
+        return userService.getAllUsers();
+    }
 
+    @RequestMapping(method = RequestMethod.POST, value = "/users/add")
+    public String save(@RequestBody User user) {
+        userService.addUser(user);
+
+        //todo should return success? Is this right return?
+        return user.getUsername();
+    }
+
+    @RequestMapping(method = RequestMethod.POST, value = "/users/authenticate")    public String authenticate(@RequestBody UserAuth auth) {
+        //todo should return key if success for user.
+        return userService.auth(auth);
+    }
 }
