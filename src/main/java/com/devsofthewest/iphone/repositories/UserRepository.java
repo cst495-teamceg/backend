@@ -7,7 +7,4 @@ import org.springframework.cloud.gcp.data.datastore.repository.DatastoreReposito
 import com.devsofthewest.iphone.model.User;
 
 public interface UserRepository extends DatastoreRepository<User, String> {
-
-    List<User> findByUser(String username);
-
 }
