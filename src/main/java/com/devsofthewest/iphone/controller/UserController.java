@@ -19,12 +19,12 @@ public class UserController {
         return "Hello";
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "/users/getAll")
+    @RequestMapping(method = RequestMethod.GET, value = "/user/getAll")
     public Iterable<User> users() {
         return userService.getAllUsers();
     }
 
-    @RequestMapping(method = RequestMethod.POST, value = "/users/add")
+    @RequestMapping(method = RequestMethod.POST, value = "/user/add")
     public String save(@RequestBody User user) {
         userService.addUser(user);
 
@@ -32,7 +32,7 @@ public class UserController {
         return user.getUsername();
     }
 
-    @RequestMapping(method = RequestMethod.POST, value = "/users/authenticate")    
+    @RequestMapping(method = RequestMethod.POST, value = "/user/authenticate")    
     public String authenticate(@RequestBody UserAuth auth) {
         //todo should return key if success for user.
         return userService.auth(auth);
