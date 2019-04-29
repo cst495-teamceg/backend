@@ -6,7 +6,9 @@ import com.devsofthewest.iphone.model.UserContext.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
+@EnableSwagger2
 @RestController
 public class UserController {
 
