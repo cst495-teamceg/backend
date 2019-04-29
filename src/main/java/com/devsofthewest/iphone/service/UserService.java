@@ -6,6 +6,8 @@ import com.devsofthewest.iphone.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.Optional;
 
 @Service
@@ -13,14 +15,27 @@ public class UserService {
     @Autowired
     UserRepository UserRepository;
 
+    private String encryptPass(String password) throws NoSuchAlgorithmException
+    {
+        MessageDigest messageDigest = MessageDigest.getInstance("SHA-512");
+        messageDigest.update(password.getBytes());
+        String pass = new String(messageDigest.digest());
+        return(pass);
+    }
+
     //todo set this up to be an actual token rather than a starter method
     //returns the userId if valid, otherwise returns -1.
-    public String auth(UserAuth auth)
+    public Integer auth(UserAuth auth)
     {
         Optional<User> user = UserRepository.findById(auth.username);
-        if(user.isPresent() && user.get().getPassword().equals(auth.password))
-            return user.get().getUsername();
-        return "Error";
+        try {
+            if (user.isPresent() && user.get().getPassword().equals(encryptPass(auth.password)))
+                return user.get().getPassId();
+        } catch (NoSuchAlgorithmException e) {
+            // TODO Auto-generated catch block
+            return -2;
+        }
+        return -1;
     }
 
     public void addUser(User user)

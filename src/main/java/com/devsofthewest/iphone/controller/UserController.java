@@ -6,9 +6,6 @@ import com.devsofthewest.iphone.model.UserContext.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import springfox.documentation.swagger2.annotations.EnableSwagger2;
-
-@EnableSwagger2
 @RestController
 public class UserController {
 
@@ -35,8 +32,7 @@ public class UserController {
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "/user/authenticate")    
-    public String authenticate(@RequestBody UserAuth auth) {
-        //todo should return key if success for user.
-        return userService.auth(auth);
+    public Integer authenticate(@RequestBody UserAuth auth) {
+        return(userService.auth(auth));
     }
 }
