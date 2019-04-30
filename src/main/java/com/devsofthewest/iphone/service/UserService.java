@@ -15,6 +15,14 @@ public class UserService {
     @Autowired
     UserRepository UserRepository;
 
+    public User getUser(String username)
+    {
+        Optional<User> user = UserRepository.findById(username);
+        if(!user.isPresent())
+            return null;
+        return(user.get());
+    }
+
     private String encryptPass(String password) throws NoSuchAlgorithmException
     {
         MessageDigest messageDigest = MessageDigest.getInstance("SHA-512");
