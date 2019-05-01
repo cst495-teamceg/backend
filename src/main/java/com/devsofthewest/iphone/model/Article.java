@@ -14,7 +14,7 @@ import java.security.NoSuchAlgorithmException;
 @Entity(name = "articles")
 public class Article {
     @Id
-    Integer id;
+    long id;
     String text;
     Double rating;
 
