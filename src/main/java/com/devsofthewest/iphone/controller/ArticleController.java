@@ -23,6 +23,12 @@ public class ArticleController {
         return(articleService.getRandArticle());
     }
 
+    @RequestMapping(method = RequestMethod.GET, value = "/articles/getAll")
+    @ApiOperation(value = "Returns all articles")
+    public Iterable<Article> users() {
+        return articleService.getAllArticles();
+    }
+
     @RequestMapping(method = RequestMethod.GET, value = "/articles/addArticle")
     @ApiOperation(value = "Gets a random article from wikipedia, and adds it to the database")
     public void addArticle()

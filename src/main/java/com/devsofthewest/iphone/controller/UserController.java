@@ -21,6 +21,7 @@ public class UserController {
     {
         return(userService.getUser(username));
     }
+
     
 
     @RequestMapping(method = RequestMethod.GET, value = "/user/getAll")

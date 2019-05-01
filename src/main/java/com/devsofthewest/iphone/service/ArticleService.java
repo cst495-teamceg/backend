@@ -28,10 +28,10 @@ public class ArticleService {
     public Boolean addRandArticle() {
         Document doc;
         Random rand = new Random();
-        Integer articleId = rand.nextInt(10000);
+        Long articleId = rand.nextLong()%10000;
         while(articleRepository.findById(articleId).isPresent())
         {
-            articleId = rand.nextInt(10000);
+            articleId = rand.nextLong()%10000;
         }
         try {
             doc = Jsoup.connect(idUrl + articleId.toString()).get();
@@ -47,6 +47,10 @@ public class ArticleService {
     {
         //todo randomize
         return(articleRepository.findAll().iterator().next());
+    }
+
+    public Iterable<Article> getAllArticles() {
+        return articleRepository.findAll();
     }
 
 }
