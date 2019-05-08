@@ -45,7 +45,7 @@ public class ArticleService {
         } catch (IOException e) {
             return false;
         }
-        Text text = doc.select("div[id=content]").first().toString();
+        Text text = new Text(doc.select("div[id=content]").first().toString());
         Article article = new Article(text, articleId);
         articleRepository.save(article); // The result
         return true;
