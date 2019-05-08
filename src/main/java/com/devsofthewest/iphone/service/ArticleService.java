@@ -65,7 +65,7 @@ public class ArticleService {
             articleId = rand.nextLong()%10000;
         }
         Text ourText = new Text(text);
-        Article article = new Article(text,articleId);
+        Article article = new Article(ourText,articleId);
         articleRepository.save(article);
         return articleId;
     }
