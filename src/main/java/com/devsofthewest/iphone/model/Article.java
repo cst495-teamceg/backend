@@ -33,4 +33,34 @@ public class Article {
 
     }
 
+    public Long getId()
+    {
+        return this.id;
+    }
+
+    public void setId(Long id)
+    {
+        this.id = id;
+    }
+
+    public Text getText()
+    {
+        return this.text;
+    }
+
+    public void setText(String text)
+    {
+        this.text = new Text(text);
+    }
+
+    public Double getRating()
+    {
+        return this.rating;
+    }
+
+    public void setRating(Double rating)
+    {
+        this.rating = rating;
+    }
+
 }
