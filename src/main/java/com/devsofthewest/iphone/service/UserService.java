@@ -74,7 +74,7 @@ public class UserService {
         return(user.getLevel());
     }
 
-    public void addArticle(String username,Integer articleId)
+    public void addArticle(String username,Long articleId)
     {
         Optional<User> optUser = UserRepository.findById(username);
         if(!optUser.isPresent())

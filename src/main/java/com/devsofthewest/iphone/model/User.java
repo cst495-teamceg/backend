@@ -99,8 +99,8 @@ public class User {
         this.readArticles = readArticles;
     }
 
-    public void AddArticle(Integer articleId)
+    public void AddArticle(Long articleId)
     {
-        readArticles.add(articleId);
+        readArticles.add(articleId.intValue());
     }
 }

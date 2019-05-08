@@ -77,8 +77,8 @@ public class ArticleService {
 
     public Article getRandArticle()
     {
-        //todo randomize
-        return(articleRepository.findAll().iterator().next());
+        Random rand = new Random();
+        return(articleRepository.findAll().get(rand.nextInt(articleRepository.findAll().size())));
     }
 
     public Iterable<Article> getAllArticles() {

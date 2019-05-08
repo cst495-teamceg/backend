@@ -51,4 +51,17 @@ public class UserController {
     {
         return(userService.addXp(userXP.username, userXP.xp));
     }
+
+    @RequestMapping(method = RequestMethod.POST, value = "/user/addReadArticle")
+    @ApiOperation(value = "Adds xp to the user, returns the level the user is after xp is added")
+    public void addArticle(@RequestBody UserArticle userArticle)
+    {
+        userService.addArticle(userArticle.username, userArticle.articleId);
+    }
+}
+
+class UserArticle
+{
+    public String username;
+    public Long articleId;
 }

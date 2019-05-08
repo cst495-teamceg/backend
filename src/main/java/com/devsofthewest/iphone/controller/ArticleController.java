@@ -34,19 +34,19 @@ public class ArticleController {
     }
 
     // Todo: WIP. Use replacement function.
-   @RequestMapping(method = RequestMethod.GET, value = "/articles/addArticle")
-    @ApiOperation(value = "Gets a random article from wikipedia, and adds it to the database")
-    public void addArticle()
-    {
-     articleService.addRandArticle();
-   }
+   //@RequestMapping(method = RequestMethod.GET, value = "/articles/addArticle")
+    //@ApiOperation(value = "Gets a random article from wikipedia, and adds it to the database")
+   // public void addArticle()
+   // {
+   //  articleService.addRandArticle();
+   //}
 
-   @RequestMapping(method = RequestMethod.POST, value = "/articles/addArticleManually")
-   @ApiOperation(value = "Gets a random article from wikipedia, and adds it to the database")
-   public Long addArticle(@RequestBody String text)
-    {
-      return(articleService.addArticle(text));
-    }
+   //@RequestMapping(method = RequestMethod.POST, value = "/articles/addArticleManually")
+   //@ApiOperation(value = "Gets a random article from wikipedia, and adds it to the database")
+   //public Long addArticle(@RequestBody String text)
+   // {
+    //  return(articleService.addArticle(text));
+   // }
 
 
 }
