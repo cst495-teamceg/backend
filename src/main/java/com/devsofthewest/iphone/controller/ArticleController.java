@@ -41,12 +41,12 @@ public class ArticleController {
    //  articleService.addRandArticle();
    //}
 
-   //@RequestMapping(method = RequestMethod.POST, value = "/articles/addArticleManually")
-   //@ApiOperation(value = "Gets a random article from wikipedia, and adds it to the database")
-   //public Long addArticle(@RequestBody String text)
-   // {
-    //  return(articleService.addArticle(text));
-   // }
+   @RequestMapping(method = RequestMethod.POST, value = "/articles/addArticleManually")
+   @ApiOperation(value = "Gets a random article from wikipedia, and adds it to the database")
+   public Long addArticle(@RequestBody String text)
+    {
+      return(articleService.addArticle(text));
+     }
 
 
 }
