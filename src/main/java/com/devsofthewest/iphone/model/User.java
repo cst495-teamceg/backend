@@ -30,10 +30,10 @@ public class User {
 
         //todo salt
         //Hashes password.
-        MessageDigest messageDigest = MessageDigest.getInstance("SHA-512");
-        messageDigest.update(password.getBytes());
-        this.password = new String(messageDigest.digest());
-
+        //MessageDigest messageDigest = MessageDigest.getInstance("SHA-512");
+        //messageDigest.update(password.getBytes());
+        //this.password = new String(messageDigest.digest());
+        this.password = password;
         this.classId = classId;
         this.level = 1;
         this.experience = 0;
