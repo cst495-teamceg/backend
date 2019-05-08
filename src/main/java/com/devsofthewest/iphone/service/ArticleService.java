@@ -70,7 +70,7 @@ public class ArticleService {
 
     public Iterable<ArticleWithString> getAllArticles() {
 
-        Iterable<ArticleWithString> iterableStringArt = new ArrayList<>();
+        ArrayList<ArticleWithString> iterableStringArt = new ArrayList<>();
 
         Iterable<Article> iterableArticle = articleRepository.findAll();
         for (Article article : iterableArticle) 
