@@ -57,7 +57,8 @@ public class ArticleService {
         {
             articleId = rand.nextLong()%10000;
         }
-        Article article = new Article(text,articleId);
+        Text textText = new Text(text);
+        Article article = new Article(textText,articleId);
         articleRepository.save(article);
         return articleId;
     }
@@ -75,7 +76,7 @@ public class ArticleService {
         Iterable<Article> iterableArticle = articleRepository.findAll();
         for (Article article : iterableArticle) 
         {
-            ArticleWithString tempArt = new ArticleWithString(article.getId(),article.getText(),article.getRating());
+            ArticleWithString tempArt = new ArticleWithString(article.getId(),article.getText().getValue(),article.getRating());
             iterableStringArt.add(tempArt);
         }
         return iterableStringArt;
