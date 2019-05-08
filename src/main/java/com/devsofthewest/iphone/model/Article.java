@@ -16,7 +16,6 @@ import com.google.appengine.api.datastore.Text;
 public class Article {
     @Id
     Long id;
-    @Set
     Text text;
     Double rating;
 
