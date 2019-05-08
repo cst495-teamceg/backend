@@ -40,7 +40,7 @@ public class ArticleController {
 
     @RequestMapping(method = RequestMethod.POST, value = "/articles/addArticle")
     @ApiOperation(value = "Gets a random article from wikipedia, and adds it to the database")
-    public Long addArticle(String text)
+    public Long addArticle(@RequestBody String text)
     {
        return(articleService.addArticle(text));
     }
