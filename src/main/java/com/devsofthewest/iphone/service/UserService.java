@@ -37,14 +37,14 @@ public class UserService {
     public Integer auth(UserAuth auth)
     {
         Optional<User> user = UserRepository.findById(auth.username);
-        try {
+        //try {
             //if (user.isPresent() && user.get().getPassword().equals(encryptPass(auth.password)))
             if (user.isPresent() && user.get().getPassword().equals(auth.password))
                 return user.get().getPassId();
-        } catch (NoSuchAlgorithmException e) {
+       // } //catch (NoSuchAlgorithmException e) {
             // TODO Auto-generated catch block
-            return -2;
-        }
+           // return -2;
+        //}
         return -1;
     }
 
