@@ -48,6 +48,7 @@ public class ArticleService {
     //manually add an article and generate a random id. Returns article ID
     public Long addArticle(String text)
     {
+        Random rand = new Random();
         Long articleId = rand.nextLong()%10000;
         while(articleRepository.findById(articleId).isPresent())
         {

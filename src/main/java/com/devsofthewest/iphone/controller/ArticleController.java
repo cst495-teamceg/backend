@@ -42,7 +42,7 @@ public class ArticleController {
     @ApiOperation(value = "Gets a random article from wikipedia, and adds it to the database")
     public Long addArticle(String text)
     {
-       articleService.addArticle(text);
+       return(articleService.addArticle(text));
     }
 
 
