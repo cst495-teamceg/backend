@@ -44,7 +44,7 @@ public class ArticleService {
             while(true)
             {
             doc = Jsoup.connect(idUrl + articleId.toString()).get();
-            if(doc.select("title").first.toString.equals("Bad title - Wikipedia"))
+            if(doc.select("title").first().toString().equals("Bad title - Wikipedia"))
                 continue;
             doc = Jsoup.parse(doc);
             break;
