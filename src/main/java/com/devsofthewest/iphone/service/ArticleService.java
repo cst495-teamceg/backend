@@ -54,8 +54,7 @@ public class ArticleService {
         } catch (IOException e) {
             return false;
         }
-        Text text = new Text(Jsoup.parse(doc.select("div[id=content]").first().toString(),idUrl + articleId.toString()).toString());
-        Article article = new Article(text, articleId);
+        Article article = new Article(Jsoup.parse(doc.select("div[id=content]").first().toString(),idUrl + articleId.toString()).toString(), articleId);
         articleRepository.save(article); // The result
         return true;
     }
