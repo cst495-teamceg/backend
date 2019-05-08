@@ -17,7 +17,7 @@ public class ArticleController {
     ArticleService articleService;
 
     //WIP
-    //@RequestMapping(method = RequestMethod.GET, value = "/articles/getRandom")
+    @RequestMapping(method = RequestMethod.GET, value = "/articles/getRandom")
     @ApiOperation(value = "Gets a random article")
     public Article getRandom()
     {
