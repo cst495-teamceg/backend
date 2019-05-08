@@ -1,7 +1,5 @@
 package com.devsofthewest.iphone.service;
-
 import com.devsofthewest.iphone.model.Article;
-import com.devsofthewest.iphone.model.ArticleWithString;
 import com.devsofthewest.iphone.repositories.ArticleRepository;
 import com.google.gson.Gson;
 
