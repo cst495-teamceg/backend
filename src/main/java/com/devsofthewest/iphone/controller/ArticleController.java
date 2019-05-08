@@ -16,7 +16,8 @@ public class ArticleController {
     @Autowired
     ArticleService articleService;
 
-    @RequestMapping(method = RequestMethod.GET, value = "/articles/getRandom")
+    //WIP
+    //@RequestMapping(method = RequestMethod.GET, value = "/articles/getRandom")
     @ApiOperation(value = "Gets a random article")
     public Article getRandom()
     {
@@ -29,11 +30,19 @@ public class ArticleController {
         return articleService.getAllArticles();
     }
 
+    // Todo: WIP. Use replacement function.
+   // @RequestMapping(method = RequestMethod.GET, value = "/articles/addArticle")
+   // @ApiOperation(value = "Gets a random article from wikipedia, and adds it to the database")
+   // public void addArticle()
+   // {
+   //     articleService.addRandArticle();
+   // }
+
     @RequestMapping(method = RequestMethod.GET, value = "/articles/addArticle")
     @ApiOperation(value = "Gets a random article from wikipedia, and adds it to the database")
-    public void addArticle()
+    public Long addArticle(String text;)
     {
-        articleService.addRandArticle();
+       articleService.addArticle(text);
     }
 
 

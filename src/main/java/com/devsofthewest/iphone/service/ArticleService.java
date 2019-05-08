@@ -25,6 +25,8 @@ public class ArticleService {
     String idUrl = "https://en.wikipedia.org/?curid=";
     String textUrl = "https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&pageids=12354&redirects=true";
 
+
+    //Gets a random article and generates an ID.
     public Boolean addRandArticle() {
         Document doc;
         Random rand = new Random();
@@ -41,6 +43,19 @@ public class ArticleService {
         Article article = new Article(doc.select("div[id=content]").first().toString(), articleId);
         articleRepository.save(article); // The result
         return true;
+    }
+
+    //manually add an article and generate a random id. Returns article ID
+    public Long addArticle(String text)
+    {
+        Long articleId = rand.nextLong()%10000;
+        while(articleRepository.findById(articleId).isPresent())
+        {
+            articleId = rand.nextLong()%10000;
+        }
+        Article article = new Article(text,articleId);
+        articleRepository.save(article);
+        return articleId;
     }
 
     public Article getRandArticle()
