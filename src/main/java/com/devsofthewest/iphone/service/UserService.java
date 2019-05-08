@@ -38,7 +38,8 @@ public class UserService {
     {
         Optional<User> user = UserRepository.findById(auth.username);
         try {
-            if (user.isPresent() && user.get().getPassword().equals(encryptPass(auth.password)))
+            //if (user.isPresent() && user.get().getPassword().equals(encryptPass(auth.password)))
+            if (user.isPresent() && user.get().getPassword().equals(auth.password))
                 return user.get().getPassId();
         } catch (NoSuchAlgorithmException e) {
             // TODO Auto-generated catch block
