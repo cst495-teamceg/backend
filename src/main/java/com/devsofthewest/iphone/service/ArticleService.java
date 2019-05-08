@@ -1,6 +1,7 @@
 package com.devsofthewest.iphone.service;
 
 import com.devsofthewest.iphone.model.Article;
+import com.devsofthewest.iphone.model.ArticleWithString;
 import com.devsofthewest.iphone.repositories.ArticleRepository;
 import com.google.gson.Gson;
 
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Service;
 import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
 import java.util.Optional;
 import java.util.Random;
 
@@ -66,8 +68,17 @@ public class ArticleService {
         return(articleRepository.findAll().iterator().next());
     }
 
-    public Iterable<Article> getAllArticles() {
-        return articleRepository.findAll();
+    public Iterable<ArticleWithString> getAllArticles() {
+
+        Iterable<ArticleWithString> iterableStringArt = new ArrayList<>();
+
+        Iterable<Article> iterableArticle = articleRepository.findAll();
+        for (Article article : iterableArticle) 
+        {
+            ArticleWithString tempArt = new ArticleWithString(article.getId(),article.getText(),article.getRating());
+            iterableStringArt.add(tempArt);
+        }
+        return iterableStringArt;
     }
 
 }
