@@ -5,7 +5,7 @@ import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Text;
 import com.google.appengine.api.datastore.Entity;
 
-import org.springframework.cloud.gcp.data.datastore.core.mapping.Entity;
+//import org.springframework.cloud.gcp.data.datastore.core.mapping.Entity;
 import org.springframework.data.annotation.Id;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,8 +16,6 @@ import javax.persistence.GeneratedValue;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-
-@Entity
 public class Article {
     @Id
     Long id;
