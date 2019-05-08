@@ -51,7 +51,7 @@ public class Article {
     public String getText()
     {
         //String ourString = new String(this.text);
-        return this.text;
+        return this.text.getValue();
     }
 
     public void setText(String text)
