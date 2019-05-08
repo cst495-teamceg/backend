@@ -13,7 +13,7 @@ import java.security.NoSuchAlgorithmException;
 import com.google.cloud.datastore.StringValue;
 import com.google.appengine.api.datastore.Text;
 
-@Entity(name = "articles")
+@Entity(name = "articless")
 public class Article {
     @Id
     Long id;
