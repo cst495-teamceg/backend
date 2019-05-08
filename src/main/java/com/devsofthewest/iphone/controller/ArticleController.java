@@ -38,7 +38,7 @@ public class ArticleController {
    //     articleService.addRandArticle();
    // }
 
-    @RequestMapping(method = RequestMethod.GET, value = "/articles/addArticle")
+    @RequestMapping(method = RequestMethod.POST, value = "/articles/addArticle")
     @ApiOperation(value = "Gets a random article from wikipedia, and adds it to the database")
     public Long addArticle(String text)
     {
