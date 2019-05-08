@@ -58,7 +58,7 @@ public class ArticleService {
     }
 
     //manually add an article and generate a random id. Returns article ID
-    public Long addArticle(Text text)
+    public Long addArticle(String text)
     {
         Random rand = new Random();
         Long articleId = rand.nextLong()%10000;
@@ -66,6 +66,7 @@ public class ArticleService {
         {
             articleId = rand.nextLong()%10000;
         }
+        Text ourText = (Text)text;
         Article article = new Article(text,articleId);
         articleRepository.save(article);
         return articleId;
@@ -77,17 +78,8 @@ public class ArticleService {
         return(articleRepository.findAll().iterator().next());
     }
 
-    public Iterable<ArticleWithString> getAllArticles() {
-
-        ArrayList<ArticleWithString> iterableStringArt = new ArrayList<>();
-
-        Iterable<Article> iterableArticle = articleRepository.findAll();
-        for (Article article : iterableArticle) 
-        {
-            ArticleWithString tempArt = new ArticleWithString(article.getId(),article.getText().getValue(),article.getRating());
-            iterableStringArt.add(tempArt);
-        }
-        return iterableStringArt;
+    public Iterable<Article> getAllArticles() {
+        return(articleRepository.findAll());
     }
 
 }

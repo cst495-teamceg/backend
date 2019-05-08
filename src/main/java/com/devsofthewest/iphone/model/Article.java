@@ -10,13 +10,13 @@ import javax.annotation.Generated;
 import javax.persistence.GeneratedValue;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import com.google.cloud.datastore.StringValue;
 import com.google.appengine.api.datastore.Text;
 
 @Entity(name = "articless")
 public class Article {
     @Id
     Long id;
+    @Set
     Text text;
     Double rating;
 
@@ -26,11 +26,6 @@ public class Article {
         this.text = text;
         this.rating = 3.0;
         this.id = id;
-    }
-    //never called. Do not use, to resolve errors!
-    public Article()
-    {
-
     }
 
     public Long getId()

@@ -30,7 +30,7 @@ public class ArticleController {
 
     @RequestMapping(method = RequestMethod.GET, value = "/articles/getAll")
     @ApiOperation(value = "Returns all articles")
-    public Iterable<ArticleWithString> getAllArticles() {
+    public Iterable<Article> getAllArticles() {
         return articleService.getAllArticles();
     }
 
@@ -44,7 +44,7 @@ public class ArticleController {
 
    @RequestMapping(method = RequestMethod.POST, value = "/articles/addArticleManually")
    @ApiOperation(value = "Gets a random article from wikipedia, and adds it to the database")
-   public Long addArticle(@RequestBody Text text)
+   public Long addArticle(@RequestBody String text)
     {
       return(articleService.addArticle(text));
     }
