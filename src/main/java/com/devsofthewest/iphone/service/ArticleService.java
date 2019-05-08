@@ -49,7 +49,7 @@ public class ArticleService {
     }
 
     //manually add an article and generate a random id. Returns article ID
-    public Long addArticle(String text)
+    public Long addArticle(Text text)
     {
         Random rand = new Random();
         Long articleId = rand.nextLong()%10000;
@@ -57,8 +57,7 @@ public class ArticleService {
         {
             articleId = rand.nextLong()%10000;
         }
-        Text textText = new Text(text);
-        Article article = new Article(textText,articleId);
+        Article article = new Article(text,articleId);
         articleRepository.save(article);
         return articleId;
     }
