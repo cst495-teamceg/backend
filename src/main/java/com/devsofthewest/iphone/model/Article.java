@@ -43,9 +43,9 @@ public class Article {
         this.id = id;
     }
 
-    public Text getText()
+    public String getText()
     {
-        return this.text;
+        return this.text.getValue();
     }
 
     public void setText(String text)
