@@ -3,7 +3,6 @@ package com.devsofthewest.iphone.controller;
 import com.devsofthewest.iphone.service.ArticleService;
 import com.devsofthewest.iphone.service.UserService;
 import com.devsofthewest.iphone.model.Article;
-import com.devsofthewest.iphone.model.ArticleWithString;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
