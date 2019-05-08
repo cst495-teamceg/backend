@@ -35,17 +35,18 @@ public class ArticleService {
     public Boolean addRandArticle() {
         Document doc;
         Random rand = new Random();
-        Long articleId = rand.nextLong()%10000;
+        Long articleId = rand.nextLong()%50000 + 10000;
         while(articleRepository.findById(articleId).isPresent())
         {
-            articleId = rand.nextLong()%10000;
+            articleId = rand.nextLong()%50000 + 10000;
         }
         try {
             doc = Jsoup.connect(idUrl + articleId.toString()).get();
         } catch (IOException e) {
             return false;
         }
-        Article article = new Article(); //(doc.select("div[id=content]").first().toString(), articleId);
+        Text text = doc.select("div[id=content]").first().toString();
+        Article article = new Article(text, articleId);
         articleRepository.save(article); // The result
         return true;
     }

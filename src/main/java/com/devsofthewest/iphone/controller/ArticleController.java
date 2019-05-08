@@ -35,19 +35,19 @@ public class ArticleController {
     }
 
     // Todo: WIP. Use replacement function.
-   // @RequestMapping(method = RequestMethod.GET, value = "/articles/addArticle")
-   // @ApiOperation(value = "Gets a random article from wikipedia, and adds it to the database")
-   // public void addArticle()
-   // {
-   //     articleService.addRandArticle();
-   // }
-
-    @RequestMapping(method = RequestMethod.POST, value = "/articles/addArticle")
+   @RequestMapping(method = RequestMethod.GET, value = "/articles/addArticle")
     @ApiOperation(value = "Gets a random article from wikipedia, and adds it to the database")
-    public Long addArticle(@RequestBody Text text)
+    public void addArticle()
     {
-       return(articleService.addArticle(text));
-    }
+     articleService.addRandArticle();
+   }
+
+   // @RequestMapping(method = RequestMethod.POST, value = "/articles/addArticle")
+   // @ApiOperation(value = "Gets a random article from wikipedia, and adds it to the database")
+   // public Long addArticle(@RequestBody Text text)
+    //{
+   //    return(articleService.addArticle(text));
+   // }
 
 
 }
