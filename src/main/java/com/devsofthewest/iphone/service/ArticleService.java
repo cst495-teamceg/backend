@@ -46,13 +46,12 @@ public class ArticleService {
             doc = Jsoup.connect(idUrl + articleId.toString()).get();
             if(doc.select("title").first().toString().equals("Bad title - Wikipedia"))
                 continue;
-            doc = Jsoup.parse(doc);
             break;
             }
         } catch (IOException e) {
             return false;
         }
-        Text text = new Text(doc.select("div[id=content]").first().toString());
+        Text text = new Text(Jsoup.parse(doc.select("div[id=content]").first().toString()));
         Article article = new Article(text, articleId);
         articleRepository.save(article); // The result
         return true;
