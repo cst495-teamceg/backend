@@ -19,6 +19,8 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
+import com.google.appengine.api.datastore.Text;
+
 @Service
 public class ArticleService {
     

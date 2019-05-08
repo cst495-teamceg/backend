@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.*;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
+import com.google.appengine.api.datastore.Text;
+
 @RestController
 public class ArticleController {
 
