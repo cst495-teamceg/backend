@@ -17,7 +17,6 @@ import com.google.appengine.api.datastore.Text;
 public class Article {
     @Id
     Long id;
-    @Persistent
     Text text;
     Double rating;
 
