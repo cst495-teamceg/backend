@@ -48,9 +48,9 @@ public class Article {
         return this.text;
     }
 
-    public void setText(String text)
+    public void setText(Text text)
     {
-        this.text = new Text(text);
+        this.text = text;
     }
 
     public Double getRating()
