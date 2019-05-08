@@ -1,7 +1,12 @@
 package com.devsofthewest.iphone.service;
+
+import com.google.appengine.api.datastore.Text;
+
 import com.devsofthewest.iphone.model.Article;
 import com.devsofthewest.iphone.repositories.ArticleRepository;
 import com.google.gson.Gson;
+
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,7 +22,7 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
-import com.google.appengine.api.datastore.Text;
+
 
 @Service
 public class ArticleService {
