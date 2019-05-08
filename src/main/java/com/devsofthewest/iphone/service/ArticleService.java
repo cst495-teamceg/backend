@@ -54,7 +54,8 @@ public class ArticleService {
         } catch (IOException e) {
             return false;
         }
-        Article article = new Article(Jsoup.parse(doc.select("div[id=content]").first().toString(),idUrl + articleId.toString()).toString(), articleId);
+        Text text = new Text(Jsoup.parse(doc.select("div[id=content]").first().toString(),idUrl + articleId.toString()).toString());
+        Article article = new Article(text, articleId);
         articleRepository.save(article); // The result
         return true;
     }
@@ -68,7 +69,8 @@ public class ArticleService {
         {
             articleId = rand.nextLong()%10000;
         }
-        Article article = new Article(text,articleId);
+        Text ourText = new Text(text);
+        Article article = new Article(ourText,articleId);
         articleRepository.save(article);
         return articleId;
     }
