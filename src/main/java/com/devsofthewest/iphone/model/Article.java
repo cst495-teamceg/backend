@@ -28,7 +28,7 @@ public class Article {
         //this.id = id;
         Entity articles = new Entity("articles", id);
         articles.setProperty("rating", 3.0);
-        articles.setUnindexedProperty("text", text);
+        articles.setUnindexedProperty("text", text.getValue());
 
         DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
         datastore.put(articles);
