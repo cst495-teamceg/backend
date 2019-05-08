@@ -6,5 +6,5 @@ import org.springframework.cloud.gcp.data.datastore.repository.DatastoreReposito
 
 import com.devsofthewest.iphone.model.Article;
 
-public class ArticleRepository extends DatastoreRepository<Article, Long> {
+public interface ArticleRepository extends DatastoreRepository<Article, Long> {
 }
